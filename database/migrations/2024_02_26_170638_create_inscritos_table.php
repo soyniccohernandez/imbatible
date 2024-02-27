@@ -26,12 +26,12 @@ return new class extends Migration
             $table->string('eps');
             $table->string('tipo_cicla');
             $table->string('usuario_instagram');
-            $table->string('perfil_strava');
+            $table->string('perfil_strava')->nullable(); // Permite valores nulos
             $table->string('distancia_recorrida');
             $table->string('soporte_pago');
             $table->string('medio_pago');
-            $table->char('talla_hombre', 1);
-            $table->char('talla_mujer', 1);
+            $table->char('talla_hombre', 1)->nullable(); // Permite valores nulos
+            $table->char('talla_mujer', 1)->nullable(); // Permite valores nulos
             $table->boolean('exoneracion');
             $table->boolean('estado_inscripcion')->default(false);
             $table->timestamps();

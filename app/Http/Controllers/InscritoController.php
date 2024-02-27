@@ -10,11 +10,15 @@ class InscritoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    
+
+    public function inscritos_final()
     {
-        $inscritos = Inscrito::all();
-        return view('preinscritos.index', ['inscritos' => $inscritos]);
+        $inscritos = Inscrito::where('estado_inscripcion', 1)->get();
+        return view('preinscritos.inscritos', ['inscritos' => $inscritos]);
     }
+
+   
 
     /**
      * Show the form for creating a new resource.
@@ -35,12 +39,6 @@ class InscritoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
-    {
-        $inscrito = Inscrito::findOrFail($id);
-        
-        return view('preinscritos.detail', compact('inscrito'));
-    }
 
     /**
      * Show the form for editing the specified resource.
