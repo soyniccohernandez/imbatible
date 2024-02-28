@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inscrito;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class InscritoController extends Controller
@@ -25,20 +26,26 @@ class InscritoController extends Controller
         return view('inscritos.detail', compact('inscrito'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function desinscribir(Request $request, Inscrito $preinscrito)
     {
-        //
+        // Invierte el valor del campo 'estado_inscripcion'
+        $preinscrito->update([
+            'estado_inscripcion' => 0,
+        ]);
+        $inscritos = Inscrito::where('estado_inscripcion', 1)->get();
+        return view('inscritos.index')->with('success', '¡Usuario desinscrito correctamente!')->with('inscritos', $inscritos);
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $response):JsonResponse
     {
-        //
+        $image = $response->file('file');
+        $imageName = time().'.'.$image->extension();
+        $image->move(public_path('uploads/soportes'), $imageName);
+        return response()->json(['success'=>$imageName]);
     }
 
     /**

@@ -15,7 +15,7 @@
                         <span class="d-flex justify-content-between  align-items-center">
                             <p class="fs-1">Datos personales</p>
                             <span class="d-flex justify-content-between  align-items-center">
-                                <a href="{{ route('preinscritos.estado.update', $preinscrito) }}" class="btn btn-success">
+                                <a href="{{ route('inscribir', $preinscrito) }}" class="btn btn-success">
                                 <i class="fa-solid fa-check"></i>
                                     <span>Inscribir</span>
                                 </a>

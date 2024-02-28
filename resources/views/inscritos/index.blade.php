@@ -64,48 +64,65 @@
 </style>
 
 <x-app-layout>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="container">
 
-                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="mb-5">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item text-primary"><a href="{{route('dashboard')}}">Administración</a></li>
-                        <li class="breadcrumb-item active text-primary" aria-current="page">Inscritos</li>
-                    </ol>
-                </nav>
-                <p class="fs-1">Listado Inscritos</p>
 
-                <table id="inscritosTable" class="table display w-100">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Medio de pago</th>
-                            <th>Soporte de pago</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($inscritos as $inscrito)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $inscrito->nombre_completo }}</td>
-                            <td>{{ $inscrito->correo_electronico }}</td>
-                            <td>{{ $inscrito->medio_pago }}</td>
-                            <td> <a href="#" class="nav-link text-primary">Descargar aquí</a> </td>
-                            <td>
-                                <a href="{{ url('inscritos/'.$inscrito->id) }}" class="btn btn-primary btn-sm">Ver info completa</a>
-                            </td>
-                            <!-- Agrega más celdas según los campos que desees mostrar -->
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+
+    @isset($success)
+
+        <script>
+            Swal.fire({
+                title: 'Desinscripción Imbatible',
+                text: ' {{ $success }}',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
+        </script>
+
+        @endif
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="container">
+
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="mb-5">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item text-primary"><a href="{{ route('dashboard') }}">Administración</a>
+                            </li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">Inscritos</li>
+                        </ol>
+                    </nav>
+                    <p class="fs-1">Listado Inscritos</p>
+
+                    <table id="inscritosTable" class="table display w-100">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Medio de pago</th>
+                                <th>Soporte de pago</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($inscritos as $inscrito)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $inscrito->nombre_completo }}</td>
+                                    <td>{{ $inscrito->correo_electronico }}</td>
+                                    <td>{{ $inscrito->medio_pago }}</td>
+                                    <td> <a href="#" class="nav-link text-primary">Descargar aquí</a> </td>
+                                    <td>
+                                        <a href="{{ url('inscritos/' . $inscrito->id) }}" class="btn btn-primary btn-sm">Ver
+                                            info completa</a>
+                                    </td>
+                                    <!-- Agrega más celdas según los campos que desees mostrar -->
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
 
-</x-app-layout>
+    </x-app-layout>

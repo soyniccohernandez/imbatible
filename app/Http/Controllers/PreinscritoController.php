@@ -16,11 +16,11 @@ class PreinscritoController extends Controller
         return view('preinscritos.index', ['inscritos' => $inscritos]);
     }
 
-    public function updateEstadoInscripcion(Request $request, Inscrito $preinscrito)
+    public function inscribir(Request $request, Inscrito $preinscrito)
     {
         // Invierte el valor del campo 'estado_inscripcion'
         $preinscrito->update([
-            'estado_inscripcion' => !$preinscrito->estado_inscripcion,
+            'estado_inscripcion' => 1,
         ]);
         $inscritos = Inscrito::where('estado_inscripcion', 0)->get();
         return view('preinscritos.index')->with('success', '¡Usuario inscrito correctamente!')->with('inscritos', $inscritos);
@@ -34,6 +34,10 @@ class PreinscritoController extends Controller
         $preinscrito = Inscrito::findOrFail($id);
 
         return view('preinscritos.detail', compact('preinscrito'));
+    }
+
+    public function create (Request $request){
+        
     }
 
     /**

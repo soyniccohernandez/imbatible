@@ -24,6 +24,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/registro', function () {return view('formulario.index');});
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -33,7 +36,9 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('preinscritos', PreinscritoController::class);
 Route::resource('inscritos', InscritoController::class);
-Route::get('/preinscrito/{preinscrito}/estado', [PreinscritoController::class, 'updateEstadoInscripcion'])->name('preinscritos.estado.update');
+
+Route::get('/inscribir/{preinscrito}', [PreinscritoController::class, 'inscribir'])->name('inscribir');
+Route::get('/desinscribir/{preinscrito}', [InscritoController::class, 'desinscribir'])->name('desinscribir');
 
 
 require __DIR__.'/auth.php';
