@@ -74,7 +74,7 @@
                         <li class="breadcrumb-item active text-primary" aria-current="page">Inscritos</li>
                     </ol>
                 </nav>
-                <p class="fs-1">Listado Preinscritos</p>
+                <p class="fs-1">Listado Inscritos</p>
 
                 <table id="inscritosTable" class="table display w-100">
                     <thead>

@@ -12,13 +12,18 @@ class InscritoController extends Controller
      */
     
 
-    public function inscritos_final()
+    public function index()
     {
         $inscritos = Inscrito::where('estado_inscripcion', 1)->get();
-        return view('preinscritos.inscritos', ['inscritos' => $inscritos]);
+        return view('inscritos.index', ['inscritos' => $inscritos]);
     }
 
-   
+    public function show($id)
+    {
+        $inscrito = Inscrito::findOrFail($id);
+
+        return view('inscritos.detail', compact('inscrito'));
+    }
 
     /**
      * Show the form for creating a new resource.

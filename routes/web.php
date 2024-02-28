@@ -34,7 +34,6 @@ Route::middleware('auth')->group(function () {
 Route::resource('preinscritos', PreinscritoController::class);
 Route::resource('inscritos', InscritoController::class);
 Route::get('/preinscrito/{preinscrito}/estado', [PreinscritoController::class, 'updateEstadoInscripcion'])->name('preinscritos.estado.update');
-Route::get('/inscritosf', [InscritoController::class, 'inscritos_final'])->name('inscritos.confirmacion.final');
 
 
 require __DIR__.'/auth.php';

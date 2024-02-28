@@ -27,7 +27,7 @@
                                 <path d="M7 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
                             </svg>
                             <span class="fs-5 mt-3 fw-medium">Consultar inscritos</span>
-                            <a href="/inscritosf" class="nav-link mt-2 text-primary">Consultar</a>
+                            <a href="/inscritos" class="nav-link mt-2 text-primary">Consultar</a>
                         </div>
                     </div>
                 </div>

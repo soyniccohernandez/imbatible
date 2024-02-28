@@ -1,12 +1,4 @@
 <x-app-layout>
-    <script>
-        Swal.fire({
-            title: 'Error!',
-            text: 'Do you want to continue',
-            icon: 'error',
-            confirmButtonText: 'Cool'
-        })
-    </script>
     <style>
         .dataTables_filter {
             width: 100%;
@@ -71,6 +63,20 @@
             margin: 2rem 0;
         }
     </style>
+
+    @isset($success)
+
+    <script>
+        Swal.fire({
+            title: 'Inscripción Imbatible',
+            text: ' {{ $success }}',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        })
+    </script>
+   
+    @endif
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="container">

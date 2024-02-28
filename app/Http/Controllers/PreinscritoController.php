@@ -22,7 +22,7 @@ class PreinscritoController extends Controller
         $preinscrito->update([
             'estado_inscripcion' => !$preinscrito->estado_inscripcion,
         ]);
-        $inscritos = Inscrito::all();
+        $inscritos = Inscrito::where('estado_inscripcion', 0)->get();
         return view('preinscritos.index')->with('success', '¡Usuario inscrito correctamente!')->with('inscritos', $inscritos);
     }
 
