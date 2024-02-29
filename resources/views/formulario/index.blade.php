@@ -16,1028 +16,210 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-steps.css">
 
-    <!-- Styles -->
     <style>
-        /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
-        *,
-        ::after,
-        ::before {
-            box-sizing: border-box;
-            border-width: 0;
-            border-style: solid;
-            border-color: #e5e7eb
+        .error {
+            color: red;
         }
 
-        ::after,
-        ::before {
-            --tw-content: ''
-        }
-
-        html {
-            line-height: 1.5;
-            -webkit-text-size-adjust: 100%;
-            -moz-tab-size: 4;
-            tab-size: 4;
-            font-family: Figtree, sans-serif;
-            font-feature-settings: normal
-        }
-
-        body {
-            margin: 0;
-            line-height: inherit
-        }
-
-        hr {
-            height: 0;
-            color: inherit;
-            border-top-width: 1px
-        }
-
-        abbr:where([title]) {
-            -webkit-text-decoration: underline dotted;
-            text-decoration: underline dotted
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-size: inherit;
-            font-weight: inherit
-        }
-
-        a {
-            color: inherit;
-            text-decoration: inherit
-        }
-
-        b,
-        strong {
-            font-weight: bolder
-        }
-
-        code,
-        kbd,
-        pre,
-        samp {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            font-size: 1em
-        }
-
-        small {
-            font-size: 80%
-        }
-
-        sub,
-        sup {
-            font-size: 75%;
-            line-height: 0;
-            position: relative;
-            vertical-align: baseline
-        }
-
-        sub {
-            bottom: -.25em
-        }
-
-        sup {
-            top: -.5em
-        }
-
-        table {
-            text-indent: 0;
-            border-color: inherit;
-            border-collapse: collapse
-        }
-
-        button,
-        input,
-        optgroup,
-        select,
-        textarea {
-            font-family: inherit;
-            font-size: 100%;
-            font-weight: inherit;
-            line-height: inherit;
-            color: inherit;
-            margin: 0;
-            padding: 0
-        }
-
-        button,
-        select {
-            text-transform: none
-        }
-
-        [type=button],
-        [type=reset],
-        [type=submit],
-        button {
-            -webkit-appearance: button;
-            background-color: transparent;
-            background-image: none
-        }
-
-        :-moz-focusring {
-            outline: auto
-        }
-
-        :-moz-ui-invalid {
-            box-shadow: none
-        }
-
-        progress {
-            vertical-align: baseline
-        }
-
-        ::-webkit-inner-spin-button,
-        ::-webkit-outer-spin-button {
-            height: auto
-        }
-
-        [type=search] {
-            -webkit-appearance: textfield;
-            outline-offset: -2px
-        }
-
-        ::-webkit-search-decoration {
-            -webkit-appearance: none
-        }
-
-        ::-webkit-file-upload-button {
-            -webkit-appearance: button;
-            font: inherit
-        }
-
-        summary {
-            display: list-item
-        }
-
-        blockquote,
-        dd,
-        dl,
-        figure,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        hr,
-        p,
-        pre {
-            margin: 0
-        }
-
-        fieldset {
-            margin: 0;
-            padding: 0
-        }
-
-        legend {
-            padding: 0
-        }
-
-        menu,
-        ol,
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0
-        }
-
-        textarea {
-            resize: vertical
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            opacity: 1;
-            color: #9ca3af
-        }
-
-        [role=button],
-        button {
-            cursor: pointer
-        }
-
-        :disabled {
-            cursor: default
-        }
-
-        audio,
-        canvas,
-        embed,
-        iframe,
-        img,
-        object,
-        svg,
-        video {
-            display: block;
-            vertical-align: middle
-        }
-
-        img,
-        video {
-            max-width: 100%;
-            height: auto
-        }
-
-        [hidden] {
-            display: none
-        }
-
-        *,
-        ::before,
-        ::after {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
-        }
-
-        ::-webkit-backdrop {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
-        }
-
-        ::backdrop {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
-        }
-
-        .relative {
-            position: relative
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto
-        }
-
-        .mx-6 {
-            margin-left: 1.5rem;
-            margin-right: 1.5rem
-        }
-
-        .ml-4 {
-            margin-left: 1rem
-        }
-
-        .mt-16 {
-            margin-top: 4rem
-        }
-
-        .mt-6 {
-            margin-top: 1.5rem
-        }
-
-        .mt-4 {
-            margin-top: 1rem
-        }
-
-        .-mt-px {
-            margin-top: -1px
-        }
-
-        .mr-1 {
-            margin-right: 0.25rem
-        }
-
-        .flex {
-            display: flex
-        }
-
-        .inline-flex {
-            display: inline-flex
-        }
-
-        .grid {
-            display: grid
-        }
-
-        .h-16 {
-            height: 4rem
-        }
-
-        .h-7 {
-            height: 1.75rem
-        }
-
-        .h-6 {
-            height: 1.5rem
-        }
-
-        .h-5 {
-            height: 1.25rem
-        }
-
-        .min-h-screen {
-            min-height: 100vh
-        }
-
-        .w-auto {
-            width: auto
-        }
-
-        .w-16 {
-            width: 4rem
-        }
-
-        .w-7 {
-            width: 1.75rem
-        }
-
-        .w-6 {
-            width: 1.5rem
-        }
-
-        .w-5 {
-            width: 1.25rem
-        }
-
-        .max-w-7xl {
-            max-width: 80rem
-        }
-
-        .shrink-0 {
-            flex-shrink: 0
-        }
-
-        .scale-100 {
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
-        }
-
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr))
-        }
-
-        .items-center {
-            align-items: center
-        }
-
-        .justify-center {
-            justify-content: center
-        }
-
-        .gap-6 {
-            gap: 1.5rem
-        }
-
-        .gap-4 {
-            gap: 1rem
-        }
-
-        .self-center {
-            align-self: center
-        }
-
-        .rounded-lg {
-            border-radius: 0.5rem
-        }
-
-        .rounded-full {
-            border-radius: 9999px
-        }
-
-        .bg-gray-100 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(243 244 246 / var(--tw-bg-opacity))
-        }
-
-        .bg-white {
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 255 255 / var(--tw-bg-opacity))
-        }
-
-        .bg-red-50 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(254 242 242 / var(--tw-bg-opacity))
-        }
-
-        .bg-dots-darker {
-            background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")
-        }
-
-        .from-gray-700\/50 {
-            --tw-gradient-from: rgb(55 65 81 / 0.5);
-            --tw-gradient-to: rgb(55 65 81 / 0);
-            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
-        }
-
-        .via-transparent {
-            --tw-gradient-to: rgb(0 0 0 / 0);
-            --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to)
-        }
-
-        .bg-center {
-            background-position: center
-        }
-
-        .stroke-red-500 {
-            stroke: #ef4444
-        }
-
-        .stroke-gray-400 {
-            stroke: #9ca3af
-        }
-
-        .p-6 {
-            padding: 1.5rem
-        }
-
-        .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem
-        }
-
-        .text-center {
-            text-align: center
-        }
-
-        .text-right {
-            text-align: right
-        }
-
-        .text-xl {
-            font-size: 1.25rem;
-            line-height: 1.75rem
-        }
-
-        .text-sm {
-            font-size: 0.875rem;
-            line-height: 1.25rem
-        }
-
-        .font-semibold {
-            font-weight: 600
-        }
-
-        .leading-relaxed {
-            line-height: 1.625
-        }
-
-        .text-gray-600 {
-            --tw-text-opacity: 1;
-            color: rgb(75 85 99 / var(--tw-text-opacity))
-        }
-
-        .text-gray-900 {
-            --tw-text-opacity: 1;
-            color: rgb(17 24 39 / var(--tw-text-opacity))
-        }
-
-        .text-gray-500 {
-            --tw-text-opacity: 1;
-            color: rgb(107 114 128 / var(--tw-text-opacity))
-        }
-
-        .underline {
-            -webkit-text-decoration-line: underline;
-            text-decoration-line: underline
-        }
-
-        .antialiased {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale
-        }
-
-        .shadow-2xl {
-            --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-        }
-
-        .shadow-gray-500\/20 {
-            --tw-shadow-color: rgb(107 114 128 / 0.2);
-            --tw-shadow: var(--tw-shadow-colored)
-        }
-
-        .transition-all {
-            transition-property: all;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms
-        }
-
-        .selection\:bg-red-500 *::selection {
-            --tw-bg-opacity: 1;
-            background-color: rgb(239 68 68 / var(--tw-bg-opacity))
-        }
-
-        .selection\:text-white *::selection {
-            --tw-text-opacity: 1;
-            color: rgb(255 255 255 / var(--tw-text-opacity))
-        }
-
-        .selection\:bg-red-500::selection {
-            --tw-bg-opacity: 1;
-            background-color: rgb(239 68 68 / var(--tw-bg-opacity))
-        }
-
-        .selection\:text-white::selection {
-            --tw-text-opacity: 1;
-            color: rgb(255 255 255 / var(--tw-text-opacity))
-        }
-
-        .hover\:text-gray-900:hover {
-            --tw-text-opacity: 1;
-            color: rgb(17 24 39 / var(--tw-text-opacity))
-        }
-
-        .hover\:text-gray-700:hover {
-            --tw-text-opacity: 1;
-            color: rgb(55 65 81 / var(--tw-text-opacity))
-        }
-
-        .focus\:rounded-sm:focus {
-            border-radius: 0.125rem
-        }
-
-        .focus\:outline:focus {
-            outline-style: solid
-        }
-
-        .focus\:outline-2:focus {
-            outline-width: 2px
-        }
-
-        .focus\:outline-red-500:focus {
-            outline-color: #ef4444
-        }
-
-        .group:hover .group-hover\:stroke-gray-600 {
-            stroke: #4b5563
-        }
-
-        .z-10 {
-            z-index: 10
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .motion-safe\:hover\:scale-\[1\.01\]:hover {
-                --tw-scale-x: 1.01;
-                --tw-scale-y: 1.01;
-                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .dark\:bg-gray-900 {
-                --tw-bg-opacity: 1;
-                background-color: rgb(17 24 39 / var(--tw-bg-opacity))
-            }
-
-            .dark\:bg-gray-800\/50 {
-                background-color: rgb(31 41 55 / 0.5)
-            }
-
-            .dark\:bg-red-800\/20 {
-                background-color: rgb(153 27 27 / 0.2)
-            }
-
-            .dark\:bg-dots-lighter {
-                background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")
-            }
-
-            .dark\:bg-gradient-to-bl {
-                background-image: linear-gradient(to bottom left, var(--tw-gradient-stops))
-            }
-
-            .dark\:stroke-gray-600 {
-                stroke: #4b5563
-            }
-
-            .dark\:text-gray-400 {
-                --tw-text-opacity: 1;
-                color: rgb(156 163 175 / var(--tw-text-opacity))
-            }
-
-            .dark\:text-white {
-                --tw-text-opacity: 1;
-                color: rgb(255 255 255 / var(--tw-text-opacity))
-            }
-
-            .dark\:shadow-none {
-                --tw-shadow: 0 0 #0000;
-                --tw-shadow-colored: 0 0 #0000;
-                box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-            }
-
-            .dark\:ring-1 {
-                --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-                --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-                box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)
-            }
-
-            .dark\:ring-inset {
-                --tw-ring-inset: inset
-            }
-
-            .dark\:ring-white\/5 {
-                --tw-ring-color: rgb(255 255 255 / 0.05)
-            }
-
-            .dark\:hover\:text-white:hover {
-                --tw-text-opacity: 1;
-                color: rgb(255 255 255 / var(--tw-text-opacity))
-            }
-
-            .group:hover .dark\:group-hover\:stroke-gray-400 {
-                stroke: #9ca3af
-            }
-        }
-
-        @media (min-width: 640px) {
-            .sm\:fixed {
-                position: fixed
-            }
-
-            .sm\:top-0 {
-                top: 0px
-            }
-
-            .sm\:right-0 {
-                right: 0px
-            }
-
-            .sm\:ml-0 {
-                margin-left: 0px
-            }
-
-            .sm\:flex {
-                display: flex
-            }
-
-            .sm\:items-center {
-                align-items: center
-            }
-
-            .sm\:justify-center {
-                justify-content: center
-            }
-
-            .sm\:justify-between {
-                justify-content: space-between
-            }
-
-            .sm\:text-left {
-                text-align: left
-            }
-
-            .sm\:text-right {
-                text-align: right
-            }
-        }
-
-        @media (min-width: 768px) {
-            .md\:grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr))
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .lg\:gap-8 {
-                gap: 2rem
-            }
-
-            .lg\:p-8 {
-                padding: 2rem
-            }
+        input.error {
+            border: solid 1px red !important;
         }
     </style>
 </head>
 
 <body class="antialiased">
-    <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                        in</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-
+    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <div class="container">
+            <div class="col-md-8 offset-md-2">
+                <p class="fs-3">IMBATIBLE BUSCANDO | EDICIÓN BUSCANDO EL ALBA</p>
+                <form method="POST" action="{{ route('inscritos.store') }}" class="d-flex flex-column gap-4" id="registerImbatible">
+                    @csrf
 
-            <form method="POST" action="{{ route('inscritos.store') }}">
-                @csrf
+                    <div class="row">
+                        <p class="fs-3">Datos básicos</p>
+                        <div class="col">
+                            <label for="tipo_identificacion">Tipo de identificación</label>
+                            <select class="form-select mt-1" aria-label="Default select example" id="tipo_identificacion" name="tipo_identificacion">
+                                <option selected>Seleccione una opción</option>
+                                <option value="Cédula de Ciudadanía (CC)">Cédula de Ciudadanía (CC)</option>
+                                <option value="Tarjeta de Identidad (TI)">Tarjeta de Identidad (TI)</option>
+                                <option value="Cédula de Extranjería (CE)">Cédula de Extranjería (CE)</option>
+                                <option value="Pasaporte (PP)">Pasaporte (PP)</option>
+                                <option value="Registro Civil de Nacimiento (RCN)">Registro Civil de Nacimiento (RCN)
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="numero_identificacion">Número de identificación</label>
+                            <input type="number" class="form-control mt-1" placeholder="1234567895" id="numero_identificacion" name="numero_identificacion">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="nombre_completo">Nombre Completo</label>
+                            <input type="text" class="form-control mt-1" placeholder="Joe Catania" name="nombre_completo" id="nombre_completo">
+                        </div>
+                        <div class="col">
+                            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                            <input type="date" class="form-control mt-1" name="fecha_nacimiento" id="fecha_nacimiento">
+                        </div>
+                    </div>
 
-                <div class="row">
-                    <div class="col">
-                        <label for="tipo_identificacion">Tipo de identificación</label>
-                        <select class="form-select mt-1" aria-label="Default select example" id="tipo_identificacion"
-                            name="tipo_identificacion">
-                            <option selected>Seleccione una opción</option>
-                            <option value="Cédula de Ciudadanía (CC)">Cédula de Ciudadanía (CC)</option>
-                            <option value="Tarjeta de Identidad (TI)">Tarjeta de Identidad (TI)</option>
-                            <option value="Cédula de Extranjería (CE)">Cédula de Extranjería (CE)</option>
-                            <option value="Pasaporte (PP)">Pasaporte (PP)</option>
-                            <option value="Registro Civil de Nacimiento (RCN)">Registro Civil de Nacimiento (RCN)
-                            </option>
-                        </select>
+                    <div class="row">
+                        <div class="col">
+                            <label for="edad">Edad</label>
+                            <input type="number" class="form-control mt-1" name="edad" id="edad">
+                        </div>
+                        <div class="col">
+                            <label for="genero">Genero</label>
+                            <select class="form-select mt-1" id="genero" name="genero">
+                                <option selected>Seleccione una opción</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="correo_electronico">Correo electrónico</label>
+                            <input type="email" class="form-control mt-1" name="correo_electronico" id="correo_electronico">
+                        </div>
+                        <div class="col">
+                            <label for="numero_celular">Número celular</label>
+                            <input type="number" class="form-control mt-1" name="numero_celular" id="numero_celular">
+                        </div>
                     </div>
                     <div class="col">
-                        <label for="numero_identificacion">Número de identificación</label>
-                        <input type="number" class="form-control mt-1" placeholder="1234567895"
-                            id="numero_identificacion" name="numero_identificacion">
+                        <label for="eps">Entidad prestadora de salud (EPS)</label>
+                        <input type="text" class="form-control mt-1" name="eps" id="eps">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="nombre_completo">Nombre Completo</label>
-                        <input type="text" class="form-control mt-1" placeholder="Joe Catania" name="nombre_completo"
-                            id="nombre_completo">
-                    </div>
-                    <div class="col">
-                        <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                        <input type="date" class="form-control mt-1" name="fecha_nacimiento" id="fecha_nacimiento">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="edad">Edad</label>
-                        <input type="number" class="form-control mt-1" name="edad" id="edad">
-                    </div>
-                    <div class="col">
-                        <label for="genero">Genero</label>
-                        <select class="form-select mt-1" id="genero" name="genero">
-                            <option selected>Seleccione una opción</option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Otro">Otro</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="correo_electronico">Correo electrónico</label>
-                        <input type="email" class="form-control mt-1" name="correo_electronico"
-                            id="correo_electronico">
-                    </div>
-                    <div class="col">
-                        <label for="numero_celular">Número celular</label>
-                        <input type="number" class="form-control mt-1" name="numero_celular" id="numero_celular">
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col">
-                        <label for="contacto_emergencia">Correo electrónico</label>
-                        <input type="text" class="form-control mt-1" name="contacto_emergencia"
-                            id="contacto_emergencia">
+                    <div class="row">
+                        <p class="fs-3">En caso de emergencia</p>
+                        <div class="col">
+                            <label for="contacto_emergencia">Contactar con</label>
+                            <input type="text" class="form-control mt-1" name="contacto_emergencia" id="contacto_emergencia">
+                        </div>
+                        <div class="col">
+                            <label for="numero_contacto_emergencia">Al número teléfono</label>
+                            <input type="number" class="form-control mt-1" name="numero_contacto_emergencia" id="numero_contacto_emergencia">
+                        </div>
+                        <div class="col">
+                            <label for="parentesco">Parentesco</label>
+                            <input type="text" class="form-control mt-1" name="parentesco" id="parentesco">
+                        </div>
                     </div>
-                    <div class="col">
-                        <label for="numero_contacto_emergencia">Número teléfono | Contacto emergencia</label>
-                        <input type="number" class="form-control mt-1" name="numero_contacto_emergencia"
-                            id="numero_contacto_emergencia">
+                    <p class="fs-3">Datos imbatible</p>
+                    <div class="row">
+                        <div class="col">
+                            <label for="tipo_cicla">¿En que tipo de bicicleta vas a participar en IMBATIBLE?</label>
+                            <select class="form-select mt-1" id="tipo_cicla" name="tipo_cicla">
+                                <option selected>Seleccione una opción</option>
+                                <option value="RUTA">RUTA</option>
+                                <option value="MTB">MTV</option>
+                                <option value="GRAVEL">GRAVEL</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="distancia_recorrida">¿Distancia más larga realizada en una sola
+                                etapa?</label>
+                            <select class="form-select mt-1" id="distancia_recorrida" name="distancia_recorrida">
+                                <option selected>Seleccione una opción</option>
+                                <option value="Entre 100 a 200 km">Entre 100 a 200 km</option>
+                                <option value="Entre 200 a 300 Km">Entre 200 a 300 Km</option>
+                                <option value="Entre 300 a 400 Km">Entre 300 a 400 Km</option>
+                                <option value="Más de 400 Km">Más de 400 Km</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col">
-                        <label for="parentesco">Parentesco</label>
-                        <input type="text" class="form-control mt-1" name="parentesco" id="parentesco">
+                    <div class="row">
+                        <div class="col">
+                            <label for="talla_hombre">Talla Jersey hombre (Ver guía de tallas hombre Phigma)</label>
+                            <select class="form-select mt-1" id="talla_hombre" name="talla_hombre">
+                                <option selected>Seleccione una opción</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="talla_mujer">Talla Jersey Mujer (Ver guía de tallas mujer Phigma)</label>
+                            <select class="form-select mt-1" id="talla_mujer" name="talla_mujer">
+                                <option selected>Seleccione una opción</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <label for="eps">Entidad prestadora de salud (EPS)</label>
-                    <input type="text" class="form-control mt-1" name="eps" id="eps">
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="tipo_cicla">Tipo cicla</label>
-                        <select class="form-select mt-1" id="tipo_cicla" name="tipo_cicla">
-                            <option selected>Seleccione una opción</option>
-                            <option value="RUTA">RUTA</option>
-                            <option value="MTB">MTV</option>
-                            <option value="GRAVEL">GRAVEL</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="distancia_recorrida">¿Cuál es la distancia más larga realizada en una sola
-                            etapa?</label>
-                        <select class="form-select mt-1" id="distancia_recorrida" name="distancia_recorrida">
-                            <option selected>Seleccione una opción</option>
-                            <option value="Entre 100 a 200 km">Entre 100 a 200 km</option>
-                            <option value="Entre 200 a 300 Km">Entre 200 a 300 Km</option>
-                            <option value="Entre 300 a 400 Km">Entre 300 a 400 Km</option>
-                            <option value="Más de 400 Km">Más de 400 Km</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="row">
+                    <div class="row">
+                        <div class="col">
+                            <label for="usuario_instragram">Nombre de usuario de Instagram. Iniciar por @...</label>
+                            <input type="text" class="form-control mt-1" name="usuario_instragram" id="usuario_instragram" placeholder="@imbatible">
+                        </div>
+                        <div class="col">
+                            <label for="perfil_strava">Perfil de Strava, copiar link</label>
+                            <input type="text" class="form-control mt-1" name="perfil_strava" id="perfil_strava">
+                        </div>
+                    </div>
+                    <p class="fs-3">Datos de pago</p>
                     <div class="col">
-                        <label for="usuario_instragram">Usuario de instragram</label>
-                        <input type="text" class="form-control mt-1" name="usuario_instragram"
-                            id="usuario_instragram">
+                        <label for="soporte_pago">¿Por que medio realizaste el pago de tu inscripción?</label>
+                        <select class="form-select mt-1" id="soporte_pago" name="soporte_pago">
+                            <option selected>Seleccione una opción</option>
+                            <option value="Daviplata">Daviplata</option>
+                            <option value="Nequi">Nequi</option>
+                            <option value="BBVA">BBVA</option>
+                        </select>
                     </div>
                     <div class="col">
-                        <label for="perfil_strava">Perfil de Strava, copiar link</label>
-                        <input type="text" class="form-control mt-1" name="perfil_strava" id="perfil_strava">
+                        <label for="medio_pago">Adjunta imagen o pdf de soporte de pago de inscripción, dónde se lea
+                            legiblemente la información.</label>
+                        <input type="file" class="form-control mt-1" name="medio_pago" id="medio_pago">
                     </div>
-                </div>
-                <div class="col">
-                    <label for="soporte_pago">¿Por que medio realizaste el pago de tu inscripción?</label>
-                    <select class="form-select mt-1" id="soporte_pago" name="soporte_pago">
-                        <option selected>Seleccione una opción</option>
-                        <option value="Daviplata">Daviplata</option>
-                        <option value="Nequi">Nequi</option>
-                        <option value="BBVA">BBVA</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <label for="medio_pago">Adjunta imagen o pdf de soporte de pago de inscripción, dónde se lea
-                        legiblemente la información.</label>
-                    <input type="file" class="form-control mt-1" name="medio_pago" id="medio_pago">
-                </div>
 
-                <div class="row">
-                    <div class="col">
-                        <label for="talla_hombre">Talla Jersey hombre (Ver guía de tallas hombre Phigma)</label>
-                        <select class="form-select mt-1" id="talla_hombre" name="talla_hombre">
-                            <option selected>Seleccione una opción</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="talla_mujer">Talla Jersey Mujer (Ver guía de tallas mujer Phigma)</label>
-                        <select class="form-select mt-1" id="talla_mujer" name="talla_mujer">
-                            <option selected>Seleccione una opción</option>
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Registrar</button>
-            </form>
-            <form action="{{ url('/inscritos') }}" method="POST" class="dropzone" id="my-great-dropzone">
-                @csrf
-            </form>
+
+                    <button type="submit" class="btn btn-primary">Realizar Inscripción</button>
+                </form>
+            </div>
         </div>
+    </div>
 
+    <script>
+        $("#registerImbatible").validate({
+            rules: {
+                nombre_completo: {
+                    required: true
+                }
+            },
+            messages: {
+                nombre_completo: {
+                    required: "Por favor, ingresa tu nombre"
+                }
+            },
+            submitHandler: function(form) {
+                // Aquí puedes ejecutar código adicional si el formulario es válido
+                form.submit();
+            }
+        });
+    </script>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script>
-        Dropzone.options.myGreatDropzone = { // camelized version of the `id`
-            paramName: "file", // The name that will be used to transfer the file
-            maxFilesize: 2, // MB
-            acceptedFiles: ".pdf, .jpeg, .jpg, .png",
-            addRemoveLinks: true,
-            dictDefaultMessage: "Arrastra y suelta los archivos aquí o haz click",
-            success: function(file, response) {
-                console.log(response);
-            }
-        };
-    </script>
+
 </body>
 
 </html>
