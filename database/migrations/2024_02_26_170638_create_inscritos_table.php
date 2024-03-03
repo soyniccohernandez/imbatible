@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('inscritos', function (Blueprint $table) {
             $table->id();
             $table->string('tipo_identificacion');
-            $table->string('numero_identificacion');
+            $table->string('numero_identificacion')->unique();
             $table->string('nombre_completo');
             $table->date('fecha_nacimiento');
             $table->integer('edad');
@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('telefono_contacto_emergencia');
             $table->string('eps');
             $table->string('tipo_cicla');
-            $table->string('usuario_instagram');
-            $table->string('perfil_strava')->nullable(); // Permite valores nulos
+            $table->string('usuario_instagram')->nullable();;
+            $table->string('perfil_strava');
             $table->string('distancia_recorrida');
             $table->string('soporte_pago');
             $table->string('medio_pago');

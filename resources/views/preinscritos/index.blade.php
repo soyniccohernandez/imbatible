@@ -107,7 +107,7 @@
                             <td>{{ $inscrito->nombre_completo }}</td>
                             <td>{{ $inscrito->correo_electronico }}</td>
                             <td>{{ $inscrito->medio_pago }}</td>
-                            <td> <a href="#" class="nav-link text-primary">Descargar aquí</a> </td>
+                            <td> <a href="/uploads/soportes/{{ $inscrito->soporte_pago }}" target="_blank" class="nav-link text-primary">Descargar aquí</a> </td>
                             <td>
                                 <a href="{{ url('preinscritos/'.$inscrito->id) }}" class="btn btn-primary btn-sm">Ver info completa</a>
                             </td>

@@ -16,7 +16,7 @@
                             <p class="fs-1">Datos personales</p>
                             <span class="d-flex justify-content-between  align-items-center">
                                 <a href="{{ route('inscribir', $preinscrito) }}" class="btn btn-success">
-                                <i class="fa-solid fa-check"></i>
+                                    <i class="fa-solid fa-check"></i>
                                     <span>Inscribir</span>
                                 </a>
                             </span>
@@ -59,7 +59,14 @@
                         </span>
                         <span class="d-flex justify-content-between  align-items-center">
                             <span>Soporte de pago</span>
-                            <span>{{ $preinscrito->soporte_pago }}</span>
+                            <span>
+
+                                <a href="/uploads/soportes/{{ $preinscrito->soporte_pago }}" class="nav-link text-primary" target="_blank">
+                                    <i class="fa-solid fa-link"></i>
+                                    {{ $preinscrito->soporte_pago }}
+                                </a>
+
+                            </span>
                         </span>
                         <hr class="my-5">
                         <p class="fs-1">Datos de evento</p>
