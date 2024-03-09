@@ -16,15 +16,16 @@ use App\Http\Controllers\InscritoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [InscritoController::class, 'countAndShowInscritos'])->name('imbatible');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/registro', function () {return view('formulario.index');});
+Route::get('/registro', function () {
+    return view('formulario.index');
+});
 
 
 Route::middleware('auth')->group(function () {
@@ -41,4 +42,4 @@ Route::get('/inscribir/{preinscrito}', [PreinscritoController::class, 'inscribir
 Route::get('/desinscribir/{preinscrito}', [InscritoController::class, 'desinscribir'])->name('desinscribir');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
