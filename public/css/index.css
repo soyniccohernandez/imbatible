@@ -121,17 +121,26 @@ button.slick-prev {
     gap:2rem;
     color:#fff;
 }
+
+
 .section_counter .titulo_header {
-    font-size:2em;
+    font-size:4rem;
+    line-height: 4rem;
     display:flex;
     flex-direction:column;
     justify-content:center;
-    align-items:center
+    align-items:center;
+}
+.section_carrousel .section_counter .text-end{
+    font-size: 3rem;
+    color:#64ccc5;
+    letter-spacing: 1rem;
 }
 .section_counter .titulo_header .title_one {
     color:#64ccc5;
     font-weight:medium;
-    font-size:1.2em
+    font-size:2em;
+    font-weight: 700;
 }
 .section_carrousel .contador {
     display:flex;
@@ -146,12 +155,12 @@ button.slick-prev {
     align-items:center;
 }
 .section_carrousel .contador div .number_counter {
-    font-size:7em;
+    font-size:5em;
     font-weight:700;
     color:#dafffb
 }
 .section_carrousel .contador div .text_counter {
-    font-size:2em
+    font-size:1em
 }
 .custom-shape-divider-bottom-1709755261,.custom-shape-divider-bottom-1709756573 {
     position:absolute;
@@ -331,7 +340,7 @@ button.slick-prev {
     align-items:center;
     font-family:Lato,sans-serif;
     color:#fff;
-    flex:1 0 calc(20% - 10px);
+    flex:1 0 calc(18% - 10px);
     opacity:.8
 }
 .divider,.footer_b1 p {
@@ -448,12 +457,12 @@ button.slick-prev {
     align-items:center;
     justify-content:center;
     flex-wrap:wrap;
-    gap:2rem
+    gap:8rem
 }
 .section_005 .sponsor_logo {
     display:block;
-    width:8rem;
-    height:4rem;
+    width:15rem;
+    height:13rem;
     background-size:contain
 }
 .section_005 .sponsor_logo_a {
@@ -671,6 +680,16 @@ button.slick-prev {
     .section_carrousel {
         height:auto!important
     }
+    .section_counter .titulo_header .title_one {
+        color: #64ccc5;
+        font-weight: medium;
+        font-size: 2em;
+    }
+    .section_carrousel .section_counter .text-end{
+        font-size: 2rem;
+        color:#64ccc5;
+        letter-spacing: normal;
+    }
 }
 @media only screen and (max-width:340px) {
     .section_003 .title_section,.section_004 .title_section_main,.section_007 .title_section,body .section_002 .title_section_main {
@@ -688,5 +707,16 @@ button.slick-prev {
     }
     .section_003 {
         padding:10rem 0
+    }
+
+    .section_counter .titulo_header .title_one {
+        color: #64ccc5;
+        font-weight: medium;
+        font-size: 1em;
+    }
+    .section_carrousel .section_counter .text-end{
+        font-size: 1rem;
+        color:#64ccc5;
+        letter-spacing: normal;
     }
 }
