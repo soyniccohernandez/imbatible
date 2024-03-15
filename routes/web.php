@@ -35,11 +35,14 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::resource('preinscritos', PreinscritoController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('preinscritos', PreinscritoController::class);
+});
 Route::resource('inscritos', InscritoController::class);
 
 Route::get('/inscribir/{preinscrito}', [PreinscritoController::class, 'inscribir'])->name('inscribir');
 Route::get('/desinscribir/{preinscrito}', [InscritoController::class, 'desinscribir'])->name('desinscribir');
+Route::post('/test', [InscritoController::class, 'test'])->name('test');
 
 
 require __DIR__ . '/auth.php';

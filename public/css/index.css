@@ -243,13 +243,13 @@ button.slick-prev {
     font-weight:600
 }
 .section_002 .img_section_002 {
-    width:400px;
+    width:600px;
     max-width:100%
 }
 .section_002 .section_002_item {
     display:flex;
     justify-content:center;
-    align-items:center
+    align-items:center;
 }
 .section_003 {
     width:100%;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'RETOIMBATIBLE') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -23,7 +23,7 @@
 
     <style>
         .fondo_login {
-            background-image: url("{{ asset('/img/fondo_login.png') }}");
+            background-color: #176B87;
             background-size: cover;
             background-position: center center;
         }
