@@ -18,6 +18,16 @@
     <link rel="shortcut icon" href="{{ asset('/img/favicon/favicon.png') }}" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>IMBATIBLE</title>
+    <style>
+        #modalTerminosCondiciones {
+            color: #000;
+            text-align: justify;
+        }
+
+        #modalTerminosCondiciones .modal-title {
+            margin-left: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -371,7 +381,6 @@
                     <div class="paragrahp_section">
                         <ul class="paragrahp_section">
                             <li><strong>Valor Inscripción:</strong> $250.000</li>
-                            <li><strong>Cuenta de ahorros:</strong> BBVA # 0079236592</li>
                             <li><strong>Financieras digitales:</strong> NEQUI/DAVIPLATA #3213028666</li>
                             <li><strong>Titular de cuenta:</strong> John Hernández Sibo</li>
                         </ul>
@@ -414,9 +423,9 @@
 
             <span class="content_sponsor">
                 <a href="https://14ochomiles.com/wahoo" aria-label="Visitar sitio oficial de wahoo" target="_blank"><span class="sponsor_logo sponsor_logo_a "></span></a>
-                <a href="https://www.escarabajosfoods.com/" aria-label="Visitar sitio oficial de escarabajosfood" target="_blank"><span class="sponsor_logo sponsor_logo_b"></span></a>
+
                 <a href="https://14ochomiles.com/" aria-label="Visitar sitio oficial de 14ochomiles" target="_blank"><span class="sponsor_logo sponsor_logo_c"></span></a>
-                <a href="https://www.mazda.com.co/" aria-label="Visitar sitio oficial de mazda" target="_blank"><span class="sponsor_logo sponsor_logo_d"></span></a>
+
                 <a href="https://phigma.co/" aria-label="Visitar sitio oficial de phigma" target="_blank"><span class="sponsor_logo sponsor_logo_e"></span></a>
                 <a href="https://www.ramo.com.co/" aria-label="Visitar sitio oficial de ramo" target="_blank"><span class="sponsor_logo sponsor_logo_f"></span></a>
             </span>
@@ -456,6 +465,9 @@
                         <li><a href="https://www.instagram.com/johnsibo_/" target="_blank">
                                 <i class="fa-solid fa-user"></i>
                                 Jhon Sibo | Organizador</a></li>
+                        <li><a href="3" data-bs-toggle="modal" data-bs-target="#modalTerminosCondiciones">
+                                <i class="fa-solid fa-file-contract"></i>
+                                Términos y Condiciones</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 footer_b3">
@@ -467,6 +479,38 @@
             </div>
         </div>
     </footer>
+
+
+
+    <div class="modal fade" id="modalTerminosCondiciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header py-5">
+                    <h1 class="modal-title fs-5 text-primary fw-bold" id="exampleModalLabel">POLITICAS DE DEVOLUCIONES </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-5 py-4">
+                    <ul>
+                        <li class="mb-5">
+                            <span class="fw-bold">Si solicitas devolución posterior a la fecha de cierre oficial de inscripciones</span> a IMBATIBLE se pierde todo derecho a reembolso de dinero pagado o aplazamiento del cupo para otro evento.
+                        </li>
+                        <li class="mb-5">
+                            <span class="fw-bold">Si solicitas devolución antes de la fecha de cierre de inscripciones</span>, se descontará el 15% del valor abonado por gastos administrativos. El saldo a favor lo podrás redimir en otro evento de IMBATIBLE o será devuelto en 10 días hábiles posteriores a la solicitud la cual debe hacerse al correo <span class="text-primary">info@retoimbatible.com</span> (En caso de escoger otro evento, se debe ejecutar la participación, ya que de lo contrario se perderá el valor abonado).
+                        </li>
+                        <li class="mb-5">
+                            Si solicitas cancelación o devolución luego del cierre de inscripciones <span class="fw-bold">puedes ceder el cupo a otra persona</span> con la aclaración que dicha persona recibirá el jersey en la talla que inicialmente se solicitó en el formulario. <span class="fw-bold">O puedes elegir recibir el kit de participante</span> y decidir no participar.
+                        </li>
+                        <li class="mb-5">
+                            <span class="fw-bold">En caso de ceder el cupo el plazo máximo para hacerlo es 8 días calendario antes del evento</span>, posterior a esa fecha no se podrá ceder el cupo, ni habrá devolución.
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
